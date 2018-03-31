@@ -39,7 +39,7 @@ const vacation = [
 // print toDom function
 const printToDom = (domString, divId) => {
     const printTo = document.getElementById(divId);
-    printTo.innerHTML = domString;
+    printTo.innerHTML += domString;
 };
 
 
@@ -48,14 +48,56 @@ const buildDomString = (vacationArray) => {
     let domString = '';
     vacationArray.forEach((vacation) => {
         domString += `<div class="card">`;
-        domString +=   `<h1>${vacation.title}</h1>`
+        domString +=   `<h1 class="titleName">${vacation.title}</h1>`
         domString +=   `<img src="${vacation.imageURL}" alt="">`;
         domString +=   `<p>${vacation.description}</p>`;
+        domString +=    `<textarea type="text" class ="inPut"></textarea>`;
         domString +=   `<button class="card-button">Click Me</button>`;
         domString += `</div>`;
+        // domString += `<div class = "diaryOutput">`;
+        // domString += `<textarea type="text" class ="output">`;
+        // domString += '</div>';
     });
 
     printToDom (domString, 'card-holder');
 };
 
 buildDomString(vacation);
+
+
+// add Eventlistener 
+const titleName = document.getElementsByClassName ('titleName');
+const inPut = document.getElementsByClassName ('inPut');
+const outPut = document.getElementById('outPut');
+
+
+    // const addEventListener = () => {
+        const allTheButtons = document.getElementsByClassName('card-button');
+
+    for (let i=0; i<allTheButtons.length; i++) {
+        
+        allTheButtons[i].addEventListener('click', (e) =>{
+            let outPutString = "";
+        let diaryStringTitle = e.target.parentNode.children[0].innerHTML;
+        let diaryString = e.target.parentNode.children[3].value;
+        outPutString += `<div id = outPutCard>`;
+        outPutString += `<h3 class ="titleAlign">${diaryStringTitle}</h3>`;
+        outPutString += `<p>${diaryString}</p>`;
+        outPutString +=`</div>`;
+        printToDom (outPutString, 'outPut');
+        });
+    
+    }
+    // }
+    //printToDom (outPutString, 'outPut');
+// const diary = (e) => {
+//     const addDiaryText = e.target.parentNode.children[3];
+//     addDiaryText.appendChild(diary);
+// }
+
+// const startApplication = () => {
+//     buildDomString(vacation);
+//     addEventListener();
+// };
+
+// startApplication ();
