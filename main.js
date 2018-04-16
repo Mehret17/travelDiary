@@ -54,9 +54,7 @@ const buildDomString = (vacationArray) => {
         domString +=    `<textarea type="text" class ="inPut"></textarea>`;
         domString +=   `<button class="card-button">Click Me</button>`;
         domString += `</div>`;
-        // domString += `<div class = "diaryOutput">`;
-        // domString += `<textarea type="text" class ="output">`;
-        // domString += '</div>';
+      
     });
 
     printToDom (domString, 'card-holder');
