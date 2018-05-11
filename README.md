@@ -16,4 +16,4 @@ EventListener
  1. In your terminal  ``` hs -p 9999```
  1. In your browser navigate to: localhost:9999
 ## Contributors
-[Mehret Kulala] (https://github.com/Mehret17)
+[Mehret Kulala](https://github.com/Mehret17)
